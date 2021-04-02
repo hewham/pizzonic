@@ -1,0 +1,17 @@
+<ion-card>
+  <img src="https://www.acozykitchen.com/wp-content/uploads/2020/10/DetroitStylePizza.jpg" />
+  <ion-card-header>
+    <ion-card-title>Pizza</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    Sauce: {{ pizza.sauce }}
+    <br>
+    Cheese: {{ pizza.cheese }}
+    <br>
+    Toppings: 
+    <span *ngFor="let topping of pizza.toppings, let i = index">
+      {{ topping }}<span *ngIf="i < pizza.toppings.length - 1">, </span>
+    </span>
+  </ion-card-content>
+</ion-card>

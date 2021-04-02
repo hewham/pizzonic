@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <h1>My pizzas</h1>
+
+  <app-pizza-card *ngFor="let pizza of dataService.savedPizzas" [input]="pizza"></app-pizza-card>
+
+  <ion-button (click)="navCtrl.navigateForward('pizza')">
+   {{dataService.savedPizzas.length == 0 ? 'Make your first pizza!' : 'Add pizza'}} 
+  </ion-button>
+
+</ion-content>

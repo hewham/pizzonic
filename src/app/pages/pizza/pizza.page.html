@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start" (click)="navCtrl.back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Make a pizza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="web-container">
+
+    <ion-item>
+      <ion-label>Sauce</ion-label>
+      <ion-select [(ngModel)]="pizza.sauce" interface="popover" placeholder="Select Sauce">
+        <ion-select-option *ngFor="let sauce of sauces" [value]="sauce">{{ sauce }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cheese</ion-label>
+      <ion-select [(ngModel)]="pizza.cheese" interface="popover" placeholder="Select Cheese">
+        <ion-select-option *ngFor="let cheese of cheeses" [value]="cheese">{{ cheese }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Toppings</ion-label>
+      <ion-select [(ngModel)]="pizza.toppings" multiple="true" interface="popover" placeholder="Select Toppings">
+        <ion-select-option *ngFor="let topping of toppings" [value]="topping">{{ topping }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <app-pizza-card [input]="pizza"></app-pizza-card>
+
+    <ion-button (click)="save()">
+      Save Pizza
+    </ion-button>
+  </div>
+
+</ion-content>
